@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8">
+	<title>Eduweb.pl - Bootcamp</title>
+	<meta name="description" content="Site contain every exercise done on bootcamp">
+	<meta name="author" content="Mateusz Chmielarz">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		.bg { background: #ffc2c2; font-weight: bold; border: 2px solid #ff9595; } body section { max-width: 600px; margin: 20px auto; } body h2 { background: #d4d4d4; border: 2px solid #9d9d9d; padding: 5px; padding-left: 20px; } body > h2 { text-align: center; font-size: 50px; margin: 0; padding: 0; background: none; border: 0; } body .answer { border-top: 2px solid #9d9d9d; padding-top: 20px; } body .answer .zadanie4 { border: 2px solid #ff9595; } body .answer > a { display: block; width: 250px; text-align: center; margin-right: 10%; margin-left: auto; color: #9d9d9d; font-weight: bold; font-size: 20px; } body ol li { margin: 10px auto; } body #side-menu { width: 150px; position: fixed; top: calc(50% - 100px); left: -150px; background: #000; color: white; border-radius: 0 0 5px 0; } body #side-menu ul { list-style: none; padding: 0; text-align: center; } body #side-menu ul a { display: block; padding: 5px 0; color: white; text-decoration: none; font-size: 20px; width: 100%; } body #side-menu ul a:hover { background: grey; } body #btn { position: fixed; top: calc(50% - 100px); left: 0; height: 50px; width: 50px; background: #000; color: white; border: 0; border-left: 2px solid grey; border-radius: 0 5px 0 0; outline: none; } body #btn1 { position: fixed; top: calc(50% - 50px); left: 0; height: 50px; width: 50px; background: white; color: black; border: 2px solid black; border-left: 0; border-top: 0; border-radius: 0 0 5px 0; outline: none; }
+	</style>
+</head>
+<body>
+	<section id="zad1">
+		<div class="headline">
+			<h2>Zadanie nr 1</h2>
+			<h3>Polyfill metody repeat dla String</h3>
+			<p>W standardzie EcmaScript 2015 pojawiła się nowa metoda dostępna na obiektach typu String o nazwie repeat. Jej użycie wygląda następująco:
+			“hej ”.repeat(3) // zwraca “hej hej hej ”
+			Metoda ta jest dostępna we wszystkich nowoczesnych przeglądarkach internetowych, ale aby poćwiczyć rozszerzanie wbudowanych typów, utwórz jej polyfill. W kodzie sprawdź najpierw czy taka metoda już w przeglądarce została zaimplementowana, a jeśli nie, to dopisz własną funkcję, która będzie mogła być na dowolnym stringu wywołana w podany wyżej sposób. Podpowiedź: rozszerzaj prototyp konstruktora String. Przy sprawdzeniu czy taka metoda już istnieje, w nowoczesnych przeglądarkach otrzymasz odpowiedź pozytywną. Jeśli zatem napiszesz odpowiedni warunek, to nie będzie można przetestować Twojej metody. Z tego powodu, zamiast repeat możesz ją nazwać repeatt.</p>
+		</div>
+		<div class="answer">
+			<a href="https://github.com/chmielinho/eduweb_w2-e1">Rozwiązanie na github.com</a>
+			
+		</div>
+	</section>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+	<script>
+	(function($) {
+		String.prototype.repeatt = function(counter) { 
+			if (counter>0) { 
+				var input = this.toString(), 
+					output = ''; 
+				for (var i=0; i<counter; i++) { 
+					output += input; 
+				} 
+				return output; 
+			} else { 
+				if(counter==0) {
+					return '';
+				} else {
+					return 'Bad value of repeat times... "' + counter + '" ';
+				} } };
+		
+	})(jQuery);
+	</script>
+</body>
+</html>
